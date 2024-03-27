@@ -30,8 +30,7 @@ class MarkerLayer extends StatefulWidget {
   State<MarkerLayer> createState() => _MarkerLayerState();
 }
 
-class _MarkerLayerState extends State<MarkerLayer>
-    with SingleTickerProviderStateMixin {
+class _MarkerLayerState extends State<MarkerLayer> with SingleTickerProviderStateMixin {
   late AnimationController _centerMarkerController;
   void Function()? _animationListener;
 
@@ -64,10 +63,8 @@ class _MarkerLayerState extends State<MarkerLayer>
         children: (List<Marker> markers) sync* {
           for (final m in markers) {
             // Resolve real alignment
-            final left =
-                0.5 * m.width * ((m.alignment ?? Alignment.center).x + 1);
-            final top =
-                0.5 * m.height * ((m.alignment ?? Alignment.center).y + 1);
+            final left = 0.5 * m.width * ((m.alignment ?? Alignment.center).x + 1);
+            final top = 0.5 * m.height * ((m.alignment ?? Alignment.center).y + 1);
             final right = m.width - left;
             final bottom = m.height - top;
 
@@ -83,13 +80,11 @@ class _MarkerLayerState extends State<MarkerLayer>
             )) continue;
 
             // Apply map camera to marker position
-            final pos = pxPoint.subtract(map.pixelOrigin);
+            final pos = pxPoint - map.pixelOrigin;
 
             var markerChild = m.child;
-            if (widget.layerOptions.selectedMarkerBuilder != null &&
-                widget.popupState.isSelected(m)) {
-              markerChild =
-                  widget.layerOptions.selectedMarkerBuilder!(context, m);
+            if (widget.layerOptions.selectedMarkerBuilder != null && widget.popupState.isSelected(m)) {
+              markerChild = widget.layerOptions.selectedMarkerBuilder!(context, m);
             }
             final markerWithGestureDetector = GestureDetector(
               onTap: () {
