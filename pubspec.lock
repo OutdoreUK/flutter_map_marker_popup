@@ -81,12 +81,11 @@ packages:
   flutter_map:
     dependency: "direct main"
     description:
-      path: "."
-      ref: master
-      resolved-ref: c2806fde8442a3ae94782e2090e7719318051ee7
-      url: "git@github.com:fleaflet/flutter_map.git"
-    source: git
-    version: "6.1.0"
+      name: flutter_map
+      sha256: bee8c5bacb49a68aabcf6009c050a8b3b07ac75403f29f741d8c00d4a725e086
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.0.0-dev.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
